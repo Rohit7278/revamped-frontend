@@ -1,0 +1,127 @@
+:root {
+  /* Lifestats Frosted Glass Design Tokens */
+  --bg-canvas: #090b10;
+  --bg-glass-card: rgba(20, 24, 33, 0.6);
+  --bg-glass-panel: rgba(255, 255, 255, 0.03);
+  --bg-glass-input: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.06);
+  
+  --rixly-blue: #e5ac24;
+  --rixly-teal: #10b981;
+  --rixly-purple: #7c3aed;
+  --rixly-amber: #eab308;
+  
+  /* Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-white: #ffffff;
+  
+  /* Structure */
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  --shadow-glass: 0 12px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --shadow-glow: 0 0 16px rgba(229, 172, 36, 0.06);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--sans);
+  background-color: var(--bg-canvas);
+  /* Dark mesh gradient with ambient gold/green blurs */
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(229, 172, 36, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #090a0f 0%, #151821 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), background-image var(--transition-normal);
+}
+
+body.light-theme {
+  background-color: #f6f5f0;
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(229, 172, 36, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #fbfbf8 0%, #edece4 100%);
+}
+
+#root {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+}
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all var(--transition-fast);
+}
+
+input, select, textarea {
+  font-family: var(--sans);
+  outline: none;
+  color-scheme: dark;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
